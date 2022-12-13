@@ -1,0 +1,38 @@
+@model List<Student>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<div class="text-center">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">University</th>
+                <th scope="col">Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in @Model)
+            {
+                <tr>
+                    <th scope="row">@student.Id</th>
+                    <td>@student.first_name</td>
+                    <td>@student.last_name</td>
+                    <td>@student.university</td>
+                    <td>
+                        <form action="/Student/Course" method="get">
+                            <input value="@student.course" name="course" type="hidden" />
+                            <input type='submit' value='@student.course'>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

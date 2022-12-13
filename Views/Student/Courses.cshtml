@@ -1,0 +1,22 @@
+@model List<String>
+@{
+    ViewData["Title"] = "Courses.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+
+    <h1>List of available courses</h1>
+    <div class="text-center btn-group-vertical" role="group" aria-label="Vertical button group">
+        @foreach (var course in @Model)
+        {
+            <form action="/Student/Course" method="get">
+                <input value="@course" name="course" type="hidden" />
+                <button type="submit" class="btn btn-dark w-full">@course</button>
+            </form>
+
+        }
+    </div>
+
+</div>

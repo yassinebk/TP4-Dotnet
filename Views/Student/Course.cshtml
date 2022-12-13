@@ -1,0 +1,43 @@
+@model List<Student>
+
+@{
+    ViewData["Title"] = "Course";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+
+    <h1>
+        Students in @Model[0].course
+    </h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">University</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in @Model)
+            {
+                <tr>
+                    <th scope="row">@student.Id</th>
+                    <td>@student.first_name</td>
+                    <td>@student.last_name</td>
+                    <td>@student.university</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+
+</div>
